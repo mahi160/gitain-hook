@@ -1,15 +1,13 @@
 import inquirer from "inquirer";
+import pc from "picocolors";
 
-const pmPrompt = async () => {
-  const pmOptions = ["npm", "yarn", "pnpm"];
-  pmOptions.forEach((pm, index) => {
-    console.log(`${index + 1}. ${pm}`);
-  });
+export const pmPrompt = async () => {
+  const pmOptions = [pc.red("npm"), pc.blue("yarn"), pc.yellowBright("pnpm")];
   const pm = await inquirer.prompt({
     type: "list",
     name: "pm",
     message: "Select your package manager:",
     choices: pmOptions,
   });
-  installDependencies(pm.pm);
+  return pm.pm;
 };

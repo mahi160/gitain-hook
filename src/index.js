@@ -1,3 +1,5 @@
+import { installDependencies } from "./utils/install.js";
+import { pmPrompt } from "./utils/pacman.js";
 import { welcome } from "./utils/welcome.js";
 
 /**
@@ -8,5 +10,8 @@ import { welcome } from "./utils/welcome.js";
  * - Add husky files
  * - Create config files
  * - Cleanup
+ * - Ctrl + C to exit
  */
 welcome();
+const pm = await pmPrompt();
+await installDependencies(pm);

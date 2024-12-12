@@ -1,8 +1,12 @@
-const installDependencies = async (pm) => {
-  const pkgs =
-    "husky lint-staged prettier eslint @commitlint/{cli,config-conventional}";
+import inquirer from "inquirer";
+import ora from "ora";
+import pc from "picocolors";
+
+const PKGS =
+  "husky lint-staged prettier eslint @commitlint/{cli,config-conventional}";
+export const installDependencies = async (pm) => {
   const cmd = pm === "npm" ? "install --save-dev" : "add -D";
-  const installCmd = `${pm} ${cmd} --save-dev ${pkgs}`;
+  const installCmd = `${pm} ${cmd} --save-dev ${PKGS}`;
 
   console.log(pc.green(`Installing dependencies with ${pm}...`));
   console.log("Command: " + pc.cyan(installCmd));
@@ -13,7 +17,9 @@ const installDependencies = async (pm) => {
     default: true,
   });
   if (!install.install) return;
-  const spinner = ora.default({ text: "Installing dependencies..." }).start();
+  const spinner = ora({ text: "Installing dependencies..." }).start();
   // execSync(installCmd);
-  spinner.succeed("Dependencies installed successfully!");
+  setTimeout(() => {
+    spinner.succeed("Dependencies installed successfully!");
+  }, 2000);
 };
