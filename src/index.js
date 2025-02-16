@@ -1,5 +1,6 @@
 import { installDependencies } from "./utils/install.js";
 import { pmPrompt } from "./utils/pacman.js";
+import { addOrUpdateConfigFile } from "./utils/template.js";
 import { welcome } from "./utils/welcome.js";
 
 /**
@@ -15,3 +16,4 @@ import { welcome } from "./utils/welcome.js";
 welcome();
 const pm = await pmPrompt();
 await installDependencies(pm);
+await addOrUpdateConfigFile("prettier", "default");

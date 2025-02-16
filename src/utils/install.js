@@ -4,6 +4,7 @@ import pc from "picocolors";
 
 const PKGS =
   "husky lint-staged prettier eslint @commitlint/{cli,config-conventional}";
+
 export const installDependencies = async (pm) => {
   const cmd = pm === "npm" ? "install --save-dev" : "add -D";
   const installCmd = `${pm} ${cmd} --save-dev ${PKGS}`;

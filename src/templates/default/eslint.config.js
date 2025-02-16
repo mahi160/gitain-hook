@@ -1,3 +1,6 @@
+/**
+ * Created by Gitain Hook
+ */
 import pluginJs from '@eslint/js'
 import typescriptParser from '@typescript-eslint/parser'
 import importPlugin from 'eslint-plugin-import'

@@ -1,4 +1,5 @@
 /**
+ * Created by Gitain Hook
  * scope: main, wui
  * types: feat, fix, docs, style, refactor, test, build, ci, chore, revert
  * example: feat(main): add new feature
@@ -7,4 +8,6 @@
  * example: style(main): fix code style
  */
 
-export default { extends: ["@commitlint/config-conventional"] };
+export default {
+  extends: ['@commitlint/config-conventional'],
+}
