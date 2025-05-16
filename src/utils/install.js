@@ -1,6 +1,7 @@
 import inquirer from "inquirer";
 import ora from "ora";
 import pc from "picocolors";
+import { execSync } from "child_process";
 
 const PKGS =
   "husky lint-staged prettier eslint @antfu/eslint-config @eslint-react/eslint-plugin eslint-plugin-react-hooks eslint-plugin-react-refresh @commitlint/{cli,config-conventional}";
