@@ -22,4 +22,20 @@ export const installDependencies = async (pm) => {
   const spinner = ora({ text: "Installing dependencies..." }).start();
   execSync(installCmd);
   spinner.succeed("Dependencies installed successfully!");
+  setScripts(pm);
+};
+
+export const setScripts = (pm) => {
+  execSync(
+    `${pm} pkg set lint-staged='{"*.{js,jsx,ts,tsx}": ["eslint --fix", "prettier --write"]}'`,
+    `${pm} pkg set scripts.prepare='husky'`,
+    `${pm} pkg set scripts.commitlint='commitlint --edit'`,
+    `${pm} pkg set scripts.format='prettier --write'`,
+    `${pm} pkg set scripts.lint='eslint ./src --fix'`,
+
+    `${pm}x husky install`,
+    `${pm}x husky add .husky/pre-commit '${pm}x lint-staged'`,
+    `${pm}x husky add .husky/pre-push '${pm} test'`,
+    `${pm}x husky add .husky/commit-msg '${pm} run commitlint ${1}'`,
+  );
 };
