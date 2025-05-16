@@ -1,26 +1,11 @@
 import fs from "node:fs";
 import path from "node:path";
 import pc from "picocolors";
-// export const templatePrompt = async () => {
-//   const templateOptions = ["questionpro-fe", "questionpro-be"];
-//   templateOptions.forEach((template, index) => {
-//     console.log(`${index + 1}. ${template}`);
-//   });
-//   const template = await inquirer.prompt({
-//     type: "list",
-//     name: "template",
-//     message: "Select your template:",
-//     choices: templateOptions,
-//   });
-//   return template.template;
-// };
 
-// Add config files
 const CONFIG_FILES = {
   prettier: ".prettierrc",
-};
-const PLUGINS = {
-  eslint: [""],
+  eslint: "eslint.config.js",
+  commitlint: "comitlint.config.mjs",
 };
 export const addOrUpdateConfigFile = async (file, template) => {
   const configFileName = CONFIG_FILES[file];

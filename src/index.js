@@ -17,3 +17,5 @@ welcome();
 const pm = await pmPrompt();
 await installDependencies(pm);
 await addOrUpdateConfigFile("prettier", "default");
+await addOrUpdateConfigFile("eslint", "default");
+await addOrUpdateConfigFile("commitlint", "default");

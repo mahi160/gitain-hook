@@ -3,7 +3,7 @@ import ora from "ora";
 import pc from "picocolors";
 
 const PKGS =
-  "husky lint-staged prettier eslint @commitlint/{cli,config-conventional}";
+  "husky lint-staged prettier eslint @antfu/eslint-config @eslint-react/eslint-plugin eslint-plugin-react-hooks eslint-plugin-react-refresh @commitlint/{cli,config-conventional}";
 
 export const installDependencies = async (pm) => {
   const cmd = pm === "npm" ? "install --save-dev" : "add -D";
@@ -18,9 +18,8 @@ export const installDependencies = async (pm) => {
     default: true,
   });
   if (!install.install) return;
+
   const spinner = ora({ text: "Installing dependencies..." }).start();
-  // execSync(installCmd);
-  setTimeout(() => {
-    spinner.succeed("Dependencies installed successfully!");
-  }, 2000);
+  execSync(installCmd);
+  spinner.succeed("Dependencies installed successfully!");
 };
