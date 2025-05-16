@@ -2,10 +2,10 @@
   "name": "gitain-hook",
   "version": "1.1.0",
   "description": "",
-  "main": "index.js",
+  "main": "src/index.js",
   "type": "module",
   "bin": {
-    "gitain-hook": "../src/index.js"
+    "gitain-hook": "src/index.js"
   },
   "scripts": {
     "dev": "nodemon src/index.js",
