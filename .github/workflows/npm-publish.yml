@@ -15,7 +15,7 @@ jobs:
         with:
           node-version: "lts/*"
       - run: npm i -g pnpm
-      - run: pnpm ci
+      - run: pnpm i --frozen-lockfile
       - run: pnpm build
       - run: pnpm audit signature
 
@@ -28,7 +28,7 @@ jobs:
         with:
           node-version: "lts/*"
           registry-url: https://registry.npmjs.org/
-      - run: pnpm ci
+      - run: pnpm i --frozen-lockfile
       - run: pnpx semantic-release
         env:
           NODE_AUTH_TOKEN: ${{secrets.npm_token}}
