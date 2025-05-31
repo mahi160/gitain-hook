@@ -3,8 +3,8 @@ name: release
 on:
   push:
     branches:
-      - main
       - next
+      - prod
 
 permissions:
   contents: release
@@ -23,7 +23,7 @@ jobs:
       - run: pnpm ci
       - run: pnpm build
       - run: pnpm audit signature
-      - name: release
+      - name: Release
         env:
           npm_token: ${{ secrets.npm_token }}
         run: pnpx semantic-release
